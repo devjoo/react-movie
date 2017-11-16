@@ -14,7 +14,7 @@ function Movie({poster, title}) {
 
 function MoviePoster({poster}) {
     return (
-        <img src={poster} alt="" />
+        <img src={poster} alt="poster" />
     )
 }
 
