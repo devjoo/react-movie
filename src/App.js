@@ -29,15 +29,23 @@ class App extends Component {
     _renderMovies = () => {
         const movies = this.state.movies.map(movie => {
             console.log(movie)
-            return <Movie title={movie.title} poster={movie.medium_cover_image} key={movie.id} />
+            return <Movie
+                title={movie.title_english}
+                poster={movie.medium_cover_image}
+                genres={movie.genres}
+                rating={movie.rating}
+                synopsis={movie.synopsis}
+                key={movie.id}
+            />
         });
         return movies
     };
 
     render() {
+        const { movies } = this.state;
         return (
-            <div className="App">
-                {this.state.movies ? this._renderMovies() : 'loading...'}
+            <div className={movies ? 'app' : 'app-loading' }>
+                {movies ? this._renderMovies() : 'loading...'}
             </div>
         );
     }
