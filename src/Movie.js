@@ -49,17 +49,19 @@ function MovieRating({rating}) {
 
     console.log(rating)
     for(var i = 0; i < 10; i++) {
-        var klass = 'rating';
+        var klass = '';
 
         if (rating >= i  && rating != null) {
-            klass += ' on';
+            klass += 'on';
         }
 
         stars.push(
-            <label
-                className={klass}>
+            <i
+                className={klass}
+                key={i}
+            >
                 ★
-            </label>
+            </i>
         );
     }
 

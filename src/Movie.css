@@ -48,7 +48,11 @@
     transition: color .2s ease-out;
 }
 
-.rating.on{
+.rating i{
+    font-style: normal;
+}
+
+.rating .on{
     color: #FFD700;
 }
 
