@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LinesEllipsis from 'react-lines-ellipsis'
 import './Movie.css';
 
 function Movie({poster, title, genres, rating, synopsis}) {
@@ -14,8 +15,18 @@ function Movie({poster, title, genres, rating, synopsis}) {
                 <div className="genrus">
                     {genres.map((genres, index) => <MovieGenres genres={genres} key={index} /> )}
                 </div>
-                <span className="rating">{rating}</span>
-                <div className="synopsis">{synopsis}</div>
+                <span className="rating">
+                    <MovieRating rating={rating} />
+                </span>
+                <div className="synopsis">
+                    <LinesEllipsis
+                        text={synopsis}
+                        maxLine='3'
+                        ellipsis='...'
+                        trimRight
+                        basedOn='letters'
+                    />
+                </div>
             </div>
         </div>
     )
@@ -30,6 +41,30 @@ function MoviePoster({poster,alt}) {
 function MovieGenres({genres}) {
     return (
         <a href="#" className="genres">{genres}</a>
+    )
+}
+
+function MovieRating({rating}) {
+    var stars = [];
+
+    console.log(rating)
+    for(var i = 0; i < 10; i++) {
+        var klass = 'rating';
+
+        if (rating >= i  && rating != null) {
+            klass += ' on';
+        }
+
+        stars.push(
+            <label
+                className={klass}>
+                ★
+            </label>
+        );
+    }
+
+    return(
+        stars
     )
 }
 

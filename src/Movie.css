@@ -39,6 +39,19 @@
     color:#B4B5BD;
 }
 
+.rating {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 1.1em;
+    color: #ABABAB;
+    transition: color .2s ease-out;
+}
+
+.rating.on{
+    color: #FFD700;
+}
+
 .movie_item .synopsis {
     text-overflow: ellipsis;
     color:#B4B5BD;
